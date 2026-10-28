@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087d3f">
+
+<title>Yuna Furnitures | Custom Furniture</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --green: #087d3f;
+  --dark: #063d25;
+  --light: #f5f8f5;
+  --white: #ffffff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #222;
+  background: var(--light);
+  line-height: 1.6;
+}
+
+header {
+  background: var(--white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px #00000010;
+}
+
+.logo {
+  color: var(--green);
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: var(--dark);
+}
+
+nav {
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: var(--green);
+}
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  padding: 70px 7%;
+  color: white;
+  background:
+    linear-gradient(90deg, #032b1fef, #063d25a8, #00000020),
+    url("https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85")
+    center/cover;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.tag {
+  color: #b6f3c9;
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 65px);
+  line-height: 1.12;
+  margin: 20px 0;
+}
+
+.hero p {
+  max-width: 520px;
+  font-size: 17px;
+  margin-bottom: 30px;
+  color: #eeeeee;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--green);
+  color: white;
+  padding: 13px 23px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #05572d;
+  transform: translateY(-2px);
+}
+
+.btn-light {
+  background: white;
+  color: var(--dark);
+  margin-left: 10px;
+}
+
+section {
+  padding: 75px 7%;
+  scroll-margin-top: 70px;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title small {
+  color: var(--green);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.section-title h2 {
+  font-size: 34px;
+  color: var(--dark);
+  margin: 8px 0;
+}
+
+.section-title p {
+  color: #666;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+  background: white;
+}
+
+.about img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.about h2 {
+  color: var(--dark);
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.about p {
+  color: #666;
+  margin-bottom: 18px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.feature {
+  padding: 15px;
+  background: var(--light);
+  border-radius: 7px;
+  font-weight: bold;
+  color: var(--dark);
+  font-size: 14px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px #0000000b;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px #00000015;
+}
+
+.card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 22px;
+}
+
+.card h3 {
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.card a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.services {
+  background: white;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.service {
+  padding: 30px 22px;
+  background: var(--light);
+  border-radius: 10px;
+  border-bottom: 3px solid var(--green);
+}
+
+.service .icon {
+  font-size: 35px;
+}
+
+.service h3 {
+  color: var(--dark);
+  margin: 12px 0;
+}
+
+.service p {
+  color: #666;
+  font-size: 14px;
+}
+
+.cta {
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, #063d25, #087d3f);
+}
+
+.cta h2 {
+  font-size: 35px;
+  margin-bottom: 12px;
+}
+
+.cta p {
+  margin-bottom: 25px;
+}
+
+.cta .btn {
+  background: white;
+  color: var(--dark);
+}
+
+.contact {
+  background: var(--light);
+}
+
+.contact-box {
+  max-width: 650px;
+  margin: auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px #0000000b;
+}
+
+.contact-box label {
+  display: block;
+  margin: 12px 0 5px;
+  font-weight: bold;
+}
+
+.contact-box input,
+.contact-box select,
+.contact-box textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font: inherit;
+  background: white;
+}
+
+.contact-box textarea {
+  resize: vertical;
+}
+
+.contact-box button {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+footer {
+  background: #042c1b;
+  color: #ddd;
+  text-align: center;
+  padding: 30px 7%;
+}
+
+footer strong {
+  color: white;
+}
+
+footer p {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #25d366;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 27px;
+  box-shadow: 0 4px 15px #0003;
+  z-index: 200;
+}
+
+@media (max-width: 800px) {
+  header {
+    padding: 15px 5%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 520px;
+    padding: 55px 6%;
+  }
+
+  section {
+    padding: 55px 6%;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .products,
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .products,
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .section-title h2,
+  .about h2,
+  .cta h2 {
+    font-size: 28px;
+  }
+
+  .btn {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .btn-light {
+    margin-left: 5px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">YUNA <span>FURNITURES</span></div>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#products">Furniture</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="tag">DESIGNED FOR YOUR LIFESTYLE</span>
+
+    <h1>Beautiful Furniture.<br>Made Just for You.</h1>
+
+    <p>
+      Transform your space with custom-made furniture,
+      elegant designs, and quality craftsmanship.
+      Your ideas, our workmanship.
+    </p>
+
+    <a href="#products" class="btn">Explore Our Work</a>
+    <a href="#contact" class="btn btn-light">Request a Quote</a>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div>
+    <img
+      src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=85"
+      alt="Elegant modern interior">
+  </div>
+
+  <div>
+    <span class="tag" style="color:#087d3f">
+      ABOUT YUNA FURNITURES
+    </span>
+
+    <h2>Your Vision. Our Craftsmanship.</h2>
+
+    <p>
+      At Yuna Furnitures, we believe every space deserves
+      furniture that reflects its owner's personality.
+    </p>
+
+    <p>
+      We focus on made-to-order furniture, practical designs,
+      careful workmanship, and furniture repairs.
+      Tell us what you need, and let's discuss your design.
+    </p>
+
+    <div class="features">
+      <div class="feature">✓ Custom Designs</div>
+      <div class="feature">✓ Quality Craftsmanship</div>
+      <div class="feature">✓ Made to Order</div>
+    </div>
+  </div>
+</section>
+
+<section id="products">
+  <div class="section-title">
+    <small>OUR WORK</small>
+    <h2>Furniture Collections</h2>
+    <p>Custom furniture made to suit your space and budget.</p>
+  </div>
+
+  <div class="products">
+
+    <article class="card">
+      <img
+        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80"
+        alt="Modern living room sofa">
+
+      <div class="card-content">
+        <h3>Sofas & Cushions</h3>
+        <p>Comfortable seating, cushion making, and sofa repairs.</p>
+        <a href="#contact" onclick="chooseProduct('Sofas and Cushions')">
+          Request a Quote →
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img
+        src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&w=800&q=80"
+        alt="Elegant bedroom furniture">
+
+      <div class="card-content">
+        <h3>Wardrobes & Beds</h3>
+        <p>Made-to-order wardrobes, beds, and bedroom furniture.</p>
+        <a href="#contact" onclick="chooseProduct('Wardrobes and Beds')">
+          Request a Quote →
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img
+        src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80"
+        alt="Modern office interior">
+
+      <div class="card-content">
+        <h3>Office Furniture</h3>
+        <p>Office desks, work tables, shelves, and storage cabinets.</p>
+        <a href="#contact" onclick="chooseProduct('Office Furniture')">
+          Request a Quote →
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img
+        src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80"
+        alt="Contemporary home interior">
+
+      <div class="card-content">
+        <h3>TV Stands & Cabinets</h3>
+        <p>Custom entertainment units, display cabinets, and storage.</p>
+        <a href="#contact" onclick="chooseProduct('TV Stands and Cabinets')">
+          Request a Quote →
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img
+        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=800&q=80"
+        alt="Luxury dining interior">
+
+      <div class="card-content">
+        <h3>Tables & Dining</h3>
+        <p>Dining tables, shop tables, and furniture for everyday use.</p>
+        <a href="#contact" onclick="chooseProduct('Tables and Dining Furniture')">
+          Request a Quote →
+        </a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img
+        src="https://images.unsplash.com/photo-1600210491369-e753d80a41f3?auto=format&fit=crop&w=800&q=80"
+        alt="Stylish interior design">
+
+      <div class="card-content">
+        <h3>Custom Woodwork</h3>
+        <p>Special designs made according to your measurements and needs.</p>
+        <a href="#contact" onclick="chooseProduct('Custom Woodwork')">
+          Request a Quote →
+        </a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-title">
+    <small>WHAT WE DO</small>
+    <h2>Our Services</h2>
+    <p>From your first idea to the finished piece.</p>
+  </div>
+
+  <div class="service-grid">
+
+    <div class="service">
+      <div class="icon">🪑</div>
+      <h3>Custom Furniture</h3>
+      <p>Furniture designed and built to match your measurements,
+      preferences, and budget.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">🛠️</div>
+      <h3>Furniture Repairs</h3>
+      <p>Repair and restore damaged furniture, wooden doors,
+      cabinets, sofas, and cushions.</p>
+    </div>
+
+    <div class="service">
+      <div class="icon">📐</div>
+      <h3>Design Consultation</h3>
+      <p>Discuss your space, furniture requirements, measurements,
+      and preferred design before ordering.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Have a Furniture Idea?</h2>
+  <p>Let's turn your idea into something beautiful.</p>
+  <a href="#contact" class="btn">Start Your Order</a>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-title">
+    <small>GET IN TOUCH</small>
+    <h2>Request Your Quote</h2>
+    <p>Tell us what you need. We'll continue the conversation on WhatsApp.</p>
+  </div>
+
+  <form class="contact-box" id="quoteForm">
+
+    <label for="name">Your Name</label>
+    <input
+      type="text"
+      id="name"
+      placeholder="Enter your name"
+      required>
+
+    <label for="product">Furniture Type</label>
+    <select id="product" required>
+      <option value="">Select furniture type</option>
+      <option>Sofas and Cushions</option>
+      <option>Wardrobes and Beds</option>
+      <option>Office Furniture</option>
+      <option>TV Stands and Cabinets</option>
+      <option>Tables and Dining Furniture</option>
+      <option>Custom Woodwork</option>
+      <option>Furniture Repair</option>
+      <option>Other</option>
+    </select>
+
+    <label for="budget">Your Budget (₦)</label>
+    <input
+      type="number"
+      id="budget"
+      placeholder="Enter your budget">
+
+    <label for="details">Describe Your Idea</label>
+    <textarea
+      id="details"
+      rows="4"
+      placeholder="Describe the design, size, colour, or repair you need..."
+      required></textarea>
+
+    <button type="submit" class="btn">
+      Send Request on WhatsApp
+    </button>
+
+  </form>
+</section>
+
+</main>
+
+<footer>
+  <strong>YUNA FURNITURES</strong>
+  <p>Custom Furniture • Woodwork • Furniture Repairs</p>
+  <p>Designed around your needs. Made with care.</p>
+  <p>© <span id="year"></span> Yuna Furnitures. All rights reserved.</p>
+</footer>
+
+<a
+  class="whatsapp"
+  id="whatsappButton"
+  href="#contact"
+  aria-label="Contact Yuna Furnitures on WhatsApp">
+  ☎
+</a>
+
+<script>
+/*
+  IMPORTANT:
+  Replace 2348012345678 below with your real WhatsApp number.
+  Use country code 234 for Nigeria, without the + sign.
+*/
+
+const WHATSAPP_NUMBER = "2348012345678";
+
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+function chooseProduct(product) {
+  document.getElementById("product").value = product;
+}
+
+document.getElementById("quoteForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const product = document.getElementById("product").value;
+  const budget = document.getElementById("budget").value.trim();
+  const details = document.getElementById("details").value.trim();
+
+  const message =
+    "Hello Yuna Furnitures!%0A%0A" +
+    "My name is: " + encodeURIComponent(name) + "%0A" +
+    "Furniture type: " + encodeURIComponent(product) + "%0A" +
+    "Budget: " + encodeURIComponent(budget ? "₦" + budget : "Not specified") + "%0A" +
+    "Details: " + encodeURIComponent(details);
+
+  if (WHATSAPP_NUMBER === "2348012345678") {
+    alert("Please replace the sample WhatsApp number in the JavaScript code with your real number before using this form.");
+    return;
+  }
+
+  window.open(
+    "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message,
+    "_blank"
+  );
+});
+
+document.getElementById("whatsappButton").addEventListener("click", function(e) {
+  if (WHATSAPP_NUMBER === "2348012345678") {
+    e.preventDefault();
+    alert("Please add your real WhatsApp number in the JavaScript code first.");
+    return;
+  }
+
+  this.href = "https://wa.me/" + WHATSAPP_NUMBER;
+  this.target = "_blank";
+});
+</script>
+
+</body>
+</html>
